@@ -1,0 +1,8 @@
+[tool.poetry]
+name = "pdf-text-extractor"
+version = "0.0.1"
+description = "CLI to extract text from PDFs"
+authors = ["Morgan Lewis <grdgrocxi7995@hotmail.com>"]
+
+[tool.ruff]
+line-length = 100
