@@ -19,10 +19,16 @@ def main(argv=None) -> int:
     pages = None
     if args.pages:
         pages = []
-        for part in args.pages.split(","):
+        for raw in args.pages.split(","):
+            part = raw.strip()
+            if not part:
+                continue
             if "-" in part:
                 a, b = part.split("-", 1)
-                pages.extend(range(int(a), int(b) + 1))
+                ai, bi = int(a), int(b)
+                if ai > bi:
+                    ai, bi = bi, ai
+                pages.extend(range(ai, bi + 1))
             else:
                 pages.append(int(part))
 

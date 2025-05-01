@@ -12,8 +12,10 @@ except Exception:  # import-time fallback for environments without deps
 def extract_text(pdf_path: Path, pages: Optional[Iterable[int]] = None) -> str:
     """Extract text from a PDF using pdfminer.six if available.
 
+    Notes:
     - `pages` are 1-indexed when provided.
     - Returns empty string if the file is missing or unreadable.
+    - If pdfminer is missing, a short marker string is returned.
     """
     try:
         if not pdf_path.exists() or not pdf_path.is_file():
